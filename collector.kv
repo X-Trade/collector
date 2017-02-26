@@ -9,6 +9,12 @@
                 ActionButton:
                     text: "Settings"
                     on_press: app.open_settings()
+    ScreenManager:
+        id: collector_screen_manager
+        CollectorScreen:
+            name: 'main_import_sreen'
+
+<CollectorScreen@Screen>:
     BoxLayout:
         orientation: 'horizontal'
         BoxLayout:
