@@ -1,9 +1,14 @@
 <CollectorLayout>
     orientation: 'vertical'
-    Label:
-        size_hint_y: None
-        height: 40
-        text: 'this will be top menu'
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                title: ""
+                with_previous: False
+            ActionOverflow:
+                ActionButton:
+                    text: "Settings"
+                    on_press: app.open_settings()
     BoxLayout:
         orientation: 'horizontal'
         BoxLayout:
