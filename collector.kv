@@ -1,0 +1,29 @@
+<CollectorLayout>
+    orientation: 'vertical'
+    Label:
+        size_hint_y: None
+        height: 40
+        text: 'this will be top menu'
+    BoxLayout:
+        orientation: 'horizontal'
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Favourites'
+            Label:
+                text: 'File description'
+        FileBrowserView:
+            text: 'FileBrowser widget'
+
+        Label:
+            text: 'Collections panel'
+
+
+[CustomListItem@SelectableView+BoxLayout]:
+    size_hint_y: ctx.size_hint_y
+    height: ctx.height
+    ListItemButton:
+        text: ctx.text
+        halign: 'left'
+        text_size: ctx.size
+        is_selected: ctx.is_selected
