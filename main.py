@@ -88,6 +88,7 @@ class FileBrowserView(GridLayout):
             self.browsing_directory = browse_next
             self.file_list_adapter.data = [".."] + sorted(items, key=lambda s: s.lower())
         elif os.path.isfile(browse_next):
+            # TODO This is too specific for linux, add other OS support
             subprocess.call(['xdg-open', browse_next])
 
 
