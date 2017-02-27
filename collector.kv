@@ -1,3 +1,18 @@
+<CollectorScreenManager>
+    id: collector_screen_manager
+
+    screen_import_browser: screen_import_browser
+    screen_import_music: screen_import_music
+
+    ScreenImportBrowser:
+        id: screen_import_browser
+        manager: collector_screen_manager
+
+    ScreenImportMusic:
+        id: screen_import_music
+        manager: collector_screen_manager
+
+
 <CollectorLayout>
     orientation: 'vertical'
     ActionBar:
@@ -14,7 +29,10 @@
         CollectorScreen:
             name: 'main_import_sreen'
 
-<CollectorScreen@Screen>:
+<ScreenImportBrowser>:
+    name: 'screen_import_browser'
+    filebrowser: filebrowser
+
     BoxLayout:
         orientation: 'horizontal'
         BoxLayout:
@@ -24,10 +42,41 @@
             Label:
                 text: 'File description'
         FileBrowserView:
+            id: filebrowser
             text: 'FileBrowser widget'
 
         Label:
             text: 'Collections panel'
+
+<ImportField@BoxLayout>
+    size_hint_y: None
+    orientation: 'horizontal'
+
+<ScreenImportMusic>:
+    name: 'screen_import_music'
+    GridLayout:
+        padding: root.width * .02, root.height * .02
+        orientation: 'vertical'
+        cols: 2
+        ImportField:
+            Label:
+                text: 'Artist'
+            TextInput:
+                id: import_artist_input
+
+        ImportField:
+            Label:
+                text: 'Song'
+            TextInput:
+                id: import_song_input
+
+        Button:
+            text: 'Cancel'
+            on_release: app.root.change_screen('screen_import_browser')
+
+        Button:
+            text: 'Save'
+            on_release: app.root.change_screen('screen_import_browser')
 
 
 [CustomListItem@SelectableView+BoxLayout]:
